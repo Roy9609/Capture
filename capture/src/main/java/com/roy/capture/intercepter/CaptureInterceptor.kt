@@ -35,7 +35,7 @@ class CaptureInterceptor : Interceptor {
         captureData.method = request.method
         val url = request.url.toUrl().toString()
         captureData.url = url
-        if (url!=null && url.isNotBlank()) {
+        if (url.isNotBlank()) {
             val uri = Uri.parse(url)
             captureData.host = uri.host
             captureData.path = uri.path + if (uri.query != null) "?" + uri.query else ""
@@ -137,8 +137,8 @@ class CaptureInterceptor : Interceptor {
 
     private fun decrypt(requestUrl: String?,body:String?):String?{
         try {
-            val url = "https://biz-app.sd.zhumanggroup.com";
-            val url2 = "https://apigateway.sd.zhumanggroup.com"
+            val url = "https://xx.xx.xxx.com";
+            val url2 = "https://xxxx.xxx.xxxxxx.com"
             //这段正则的意思是只获取域名
             val reg = "[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\\.?"
 
