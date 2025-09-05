@@ -1,4 +1,4 @@
-package com.roy.capturelib.room
+package com.roy.capture.room
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

@@ -1,12 +1,10 @@
-package com.roy.capturelib.room
+package com.roy.capture.room
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.lygttpod.monitor.data.CaptureData
 import com.roy.capturelib.bean.CaptureJsNativeInteractData
-import com.roy.capturelib.bean.CaptureSearchHistoryData
 
 
 @Dao

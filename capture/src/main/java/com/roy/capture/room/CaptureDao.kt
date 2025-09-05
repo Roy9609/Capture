@@ -1,8 +1,8 @@
-package com.lygttpod.monitor.room
+package com.roy.capture.room
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.lygttpod.monitor.data.CaptureData
+import com.roy.capture.bean.CaptureData
 
 @Dao
 interface CaptureDao {

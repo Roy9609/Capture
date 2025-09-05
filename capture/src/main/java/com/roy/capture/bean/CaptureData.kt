@@ -1,4 +1,4 @@
-package com.lygttpod.monitor.data
+package com.roy.capture.bean
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

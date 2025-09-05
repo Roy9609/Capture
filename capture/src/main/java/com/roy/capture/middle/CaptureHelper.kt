@@ -3,14 +3,14 @@ package com.roy.capturelib.middle
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.Room
-import com.lygttpod.monitor.data.CaptureData
-import com.lygttpod.monitor.room.CaptureDao
-import com.lygttpod.monitor.room.CaptureDatabase
+import com.roy.capture.bean.CaptureData
+import com.roy.capture.room.CaptureDao
+import com.roy.capture.room.CaptureDatabase
 import com.roy.capture.CaptureLib
 import com.roy.capturelib.bean.CaptureJsNativeInteractData
 import com.roy.capturelib.bean.CaptureSearchHistoryData
-import com.roy.capturelib.room.CaptureJsNativeInteractDataDao
-import com.roy.capturelib.room.CaptureSearchHistoryDataDao
+import com.roy.capture.room.CaptureJsNativeInteractDataDao
+import com.roy.capture.room.CaptureSearchHistoryDataDao
 import kotlin.concurrent.thread
 
 
@@ -50,7 +50,7 @@ class CaptureHelper {
         return captureDb?.searchHistoryDao()
     }
 
-    private fun getJsNativeInteractDataDao():CaptureJsNativeInteractDataDao?{
+    private fun getJsNativeInteractDataDao(): CaptureJsNativeInteractDataDao?{
         return  captureDb?.jsNativeInteractDataDao()
     }
 

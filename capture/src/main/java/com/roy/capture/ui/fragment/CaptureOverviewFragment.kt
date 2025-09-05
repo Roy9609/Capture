@@ -5,7 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.reflect.TypeToken
-import com.lygttpod.monitor.data.CaptureData
+import com.roy.capture.bean.CaptureData
 import com.roy.capture.utils.GsonHelper
 import com.roy.capture.R
 
@@ -33,7 +33,7 @@ class CaptureOverviewFragment : CaptureBaseFragment() {
 
   var  list: ArrayList<CaptureListDetailsBean> = ArrayList()
 
-  var data:CaptureData?=null
+  var data: CaptureData?=null
 
     override fun initView(view: View?) {
 

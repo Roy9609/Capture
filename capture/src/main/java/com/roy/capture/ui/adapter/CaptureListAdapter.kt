@@ -6,9 +6,9 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
-import com.lygttpod.monitor.data.CaptureData
-import com.lygttpod.monitor.utils.TIME_HOUR_MINUTES
-import com.lygttpod.monitor.utils.formatData
+import com.roy.capture.bean.CaptureData
+import com.roy.capture.utils.TIME_HOUR_MINUTES
+import com.roy.capture.utils.formatData
 import com.roy.capture.R
 
 import com.roy.capture.ui.CaptureListDetailsActivity

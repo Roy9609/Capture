@@ -11,7 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import com.google.gson.JsonParser
-import com.lygttpod.monitor.data.CaptureData
+import com.roy.capture.bean.CaptureData
 import com.roy.capture.utils.GsonHelper
 import com.roy.capture.R
 import com.roy.capture.databinding.CaptureListDetailsActivityBinding
@@ -34,12 +34,12 @@ import kotlin.concurrent.thread
 
 class CaptureListDetailsActivity : AppCompatActivity() {
 
-    var data:CaptureData?=null
+    var data: CaptureData?=null
 
     lateinit var binding: CaptureListDetailsActivityBinding
     companion object{
 
-        fun doIntent(context: Context, dataItemCurrentPosition:CaptureData?){
+        fun doIntent(context: Context, dataItemCurrentPosition: CaptureData?){
           var intent =  Intent(context,CaptureListDetailsActivity::class.java)
             var bundle =  Bundle()
             bundle.putBinder("jsonItem", JsonBinder(dataItemCurrentPosition))

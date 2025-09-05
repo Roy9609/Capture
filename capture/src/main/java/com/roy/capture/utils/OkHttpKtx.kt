@@ -1,8 +1,7 @@
-package com.lygttpod.monitor.utils
+package com.roy.capture.utils
 
 
-import com.lygttpod.monitor.data.CaptureHttpHeader
-import com.roy.capture.utils.GsonHelper
+import com.roy.capture.bean.CaptureHttpHeader
 import okhttp3.Headers
 import okhttp3.RequestBody
 import okhttp3.Response

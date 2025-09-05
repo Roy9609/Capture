@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lygttpod.monitor.data.CaptureData
+import com.roy.capture.bean.CaptureData
 import com.roy.capture.CaptureLib
 import com.roy.capture.R
 import com.roy.capture.databinding.CaptureListActivityBinding

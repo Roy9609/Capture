@@ -2,7 +2,7 @@ package com.roy.capture
 
 
 import android.app.Application
-import com.lygttpod.monitor.interceptor.CaptureInterceptor
+import com.roy.capture.intercepter.CaptureInterceptor
 import com.roy.capturelib.middle.CaptureHelper
 import com.roy.capturelib.utils.CaptureSp
 import com.roy.capture.utils.CacheUtil
