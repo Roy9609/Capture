@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+  <application>
+
+      <activity
+          android:name="com.roy.capture.ui.CaptureListActivity"
+          android:screenOrientation="landscape"
+          android:exported="false"
+          android:theme="@style/CaptureTheme"
+          />
+
+      <activity
+          android:name="com.roy.capture.ui.CaptureListDetailsActivity"
+          android:screenOrientation="landscape"
+          android:exported="false"
+          android:theme="@style/CaptureTheme"
+          />
+
+
+      <activity
+          android:name="com.roy.capture.ui.CaptureSettingActivity"
+          android:exported="false"
+          android:theme="@style/CaptureTheme"
+          android:screenOrientation="landscape" />
+
+      <provider
+          android:authorities="${applicationId}.providerCaptureProvider"
+          android:exported="false"
+          android:name=".provider.CaptureProvider"/>
+  </application>
+</manifest>

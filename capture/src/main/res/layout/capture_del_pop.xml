@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clt_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/capture_bg_ffffff_top_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+        <TextView
+            android:id="@+id/tv_login_out"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:text="删除"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:textColor="#F7534F"
+            app:layout_constraintBottom_toTopOf="@id/v1"
+            android:background="?android:selectableItemBackground"
+            />
+        <View
+            android:id="@+id/v1"
+            android:layout_width="match_parent"
+            android:layout_height="7dp"
+            android:background="#EEEEEE"
+            app:layout_constraintBottom_toTopOf="@id/tv_cancel"
+            />
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="#85000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="?android:selectableItemBackground"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

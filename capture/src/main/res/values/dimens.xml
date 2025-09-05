@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="corner_radius_rounded">12dp</dimen>
+    <dimen name="corner_radius_default">2dp</dimen>
+
+</resources>
