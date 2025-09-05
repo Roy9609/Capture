@@ -27,7 +27,9 @@ class MainActivity :AppCompatActivity() {
         findViewById<TextView>(R.id.textView).setOnClickListener {
             sendRequest("https://www.wanandroid.com/article/list/0/json")
 
-            CaptureOperate.instance.startCaptureListActivity(this)
+           if(!CaptureOperate.instance.startCaptureListActivity(this)){
+               Toast.makeText(this,"插件未安装",Toast.LENGTH_SHORT).show()
+           }
         }
 
     }

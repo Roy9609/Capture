@@ -26,9 +26,16 @@ class CaptureOperate private constructor() {
 
 
     //打开抓包页面
-    fun startCaptureListActivity(context: Context){
-        val intent =  Intent(context, Class.forName("com.roy.capture.ui.CaptureListActivity"))
-        context.startActivity(intent)
+    fun startCaptureListActivity(context: Context):Boolean{
+        try {
+            val intent =  Intent(context, Class.forName("com.roy.capture.ui.CaptureListActivity"))
+            context.startActivity(intent)
+            return true
+        }catch (e:Exception){
+            e.printStackTrace()
+            return false
+        }
+
     }
 
 
