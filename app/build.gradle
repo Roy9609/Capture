@@ -20,7 +20,12 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -48,6 +53,6 @@ dependencies {
     androidTestImplementation libs.androidx.espresso.core
 
     api "com.squareup.okhttp3:okhttp:4.10.0"
-    implementation project(':capture')
+    api  project(':capture')
     implementation project(":captureOperate")
 }

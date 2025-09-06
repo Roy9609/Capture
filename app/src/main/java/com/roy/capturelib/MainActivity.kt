@@ -44,7 +44,10 @@ class MainActivity :AppCompatActivity() {
 
          val client =   okHttpClientBuilder.build()
 
-        val request = Request.Builder().url(url).build();
+        val request = Request.Builder().url(url)
+            .addHeader("token","aadd")
+            .addHeader("ddd","ddff")
+            .build();
         client.newCall(request).enqueue(object : Callback{
 
             override fun onFailure(call: Call, e: IOException) {
