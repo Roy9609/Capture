@@ -1,4 +1,4 @@
-package com.roy.capturelib.ui.fragment
+package com.roy.capture.ui.fragment
 
 import android.text.TextUtils
 import android.view.View
@@ -10,7 +10,7 @@ import com.roy.capture.utils.GsonHelper
 import com.roy.capture.R
 
 
-import com.roy.capturelib.bean.JsonBinder
+import com.roy.capture.bean.JsonBinder
 import com.roy.capture.ui.adapter.CaptureListDetailsAdapter
 import com.roy.capture.bean.CaptureHeaderBean
 import com.roy.capture.bean.CaptureListDetailsBean

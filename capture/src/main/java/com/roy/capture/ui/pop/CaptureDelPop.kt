@@ -1,4 +1,4 @@
-package com.roy.capturelib.ui.pop
+package com.roy.capture.ui.pop
 
 import android.content.Context
 import android.view.Gravity
@@ -17,10 +17,10 @@ import razerdp.util.animation.TranslationConfig
 
 
 
-class CaptureDelPop constructor(context: Context):BasePopupWindow(context)  {
+class CaptureDelPop(context: Context):BasePopupWindow(context)  {
 
 
-    lateinit var tvDelOut: TextView
+    private lateinit var tvDelOut: TextView
     private lateinit var tvCancel: TextView
 
     init {
@@ -32,9 +32,9 @@ class CaptureDelPop constructor(context: Context):BasePopupWindow(context)  {
 
     override fun onViewCreated(contentView: View) {
         super.onViewCreated(contentView)
-        setOutSideTouchable(true)
+        isOutSideTouchable = true
         setOutSideDismiss(true)
-        setPopupGravity(Gravity.BOTTOM)
+        popupGravity = Gravity.BOTTOM
         tvDelOut = contentView.findViewById(R.id.tv_login_out)
         tvCancel = contentView.findViewById(R.id.tv_cancel)
 

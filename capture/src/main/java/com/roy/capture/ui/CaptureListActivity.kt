@@ -18,18 +18,18 @@ import com.roy.capture.R
 import com.roy.capture.databinding.CaptureListActivityBinding
 import com.roy.capture.ui.widget.materialsearchbar.MaterialSearchBar
 import com.roy.capture.utils.CacheUtil
-import com.roy.capturelib.ui.adapter.CaptureListAdapter
-import com.roy.capturelib.ui.pop.CaptureDelPop
+import com.roy.capture.ui.adapter.CaptureListAdapter
+import com.roy.capture.ui.pop.CaptureDelPop
 
 
 class CaptureListActivity : AppCompatActivity() {
 
-    var captureListAdapter: CaptureListAdapter? = null
-    var captureList: ArrayList<CaptureData> = ArrayList()
+    private var captureListAdapter: CaptureListAdapter? = null
+    private var captureList: ArrayList<CaptureData> = ArrayList()
 
     private var lastSearches: List<String>? = null
 
-    lateinit var binding: CaptureListActivityBinding
+    private lateinit var binding: CaptureListActivityBinding
 
     companion object {
 
@@ -45,18 +45,15 @@ class CaptureListActivity : AppCompatActivity() {
         }
     }
 
-    var allLib = object : Observer<MutableList<CaptureData>> {
-        @SuppressLint("NotifyDataSetChanged")
-        override fun onChanged(t: MutableList<CaptureData>) {
+    @SuppressLint("NotifyDataSetChanged")
+    var allLib =
+        Observer<MutableList<CaptureData>> { t ->
             t.apply {
                 captureList.clear()
                 captureList.addAll(t)
                 captureListAdapter?.notifyDataSetChanged()
             }
-
         }
-
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +63,7 @@ class CaptureListActivity : AppCompatActivity() {
         binding.rlCapture.layoutManager = LinearLayoutManager(this)
         binding.rlCapture.adapter = captureListAdapter
         captureListAdapter?.setEmptyView(R.layout.capture_empty_layout)
-        binding.ctvTitle.getTitleView().setText("请求记录")
+        binding.ctvTitle.getTitleView().text = "请求记录"
 
 
         binding.ctvTitle.setIcon(binding.ctvTitle.getRightText2(), R.drawable.capture_icon_setting)
@@ -132,7 +129,7 @@ class CaptureListActivity : AppCompatActivity() {
             }
         })
 
-        binding.searchBar.setExternalListener { position, str ->
+        binding.searchBar.setExternalListener { _, str ->
             if (TextUtils.isEmpty(str)) {
                 allLog()
             } else {
@@ -161,7 +158,7 @@ class CaptureListActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        saveSearchSuggestionToDisk();
+        saveSearchSuggestionToDisk()
         super.onDestroy()
     }
 }

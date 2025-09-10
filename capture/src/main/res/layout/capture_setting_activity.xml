@@ -8,7 +8,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 
-    <com.roy.capturelib.widget.CaptureTitleBarView
+    <com.roy.capture.widget.CaptureTitleBarView
         android:id="@+id/ctv_title"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package com.roy.capturelib.bean
+package com.roy.capture.bean
 
 import android.os.Binder
 import com.roy.capture.bean.CaptureData

@@ -1,4 +1,4 @@
-package com.roy.capturelib.widget
+package com.roy.capture.widget
 
 import android.app.Activity
 import android.content.Context

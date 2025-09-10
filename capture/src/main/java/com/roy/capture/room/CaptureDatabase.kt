@@ -3,8 +3,8 @@ package com.roy.capture.room
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.roy.capture.bean.CaptureData
-import com.roy.capturelib.bean.CaptureJsNativeInteractData
-import com.roy.capturelib.bean.CaptureSearchHistoryData
+import com.roy.capture.bean.CaptureJsNativeInteractData
+import com.roy.capture.bean.CaptureSearchHistoryData
 
 @Database(entities = [CaptureData::class,
     CaptureSearchHistoryData::class,CaptureJsNativeInteractData::class], version = 4, exportSchema = false)

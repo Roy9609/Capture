@@ -1,4 +1,4 @@
-package com.roy.capturelib.bean
+package com.roy.capture.bean
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

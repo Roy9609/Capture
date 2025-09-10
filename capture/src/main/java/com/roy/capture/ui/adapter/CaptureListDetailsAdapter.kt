@@ -67,7 +67,7 @@ class CaptureListDetailsAdapter(list: ArrayList<CaptureListDetailsBean>?) : Base
 
     }
 
-    @SuppressLint("NotifyDataSetChanged")
+    @SuppressLint("NotifyDataSetChanged", "SetTextI18n")
     override fun convert(holder: BaseViewHolder, item: CaptureListDetailsBean) {
         when (holder.itemViewType) {
             TYPE_1 -> {

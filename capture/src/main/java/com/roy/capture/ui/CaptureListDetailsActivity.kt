@@ -15,12 +15,14 @@ import com.roy.capture.bean.CaptureData
 import com.roy.capture.utils.GsonHelper
 import com.roy.capture.R
 import com.roy.capture.databinding.CaptureListDetailsActivityBinding
-
-import com.roy.capturelib.bean.JsonBinder
-
-import com.roy.capturelib.ui.fragment.CaptureOverviewFragment
+import com.roy.capture.bean.JsonBinder
+import com.roy.capture.ui.fragment.CaptureOverviewFragment
 import com.roy.capture.ui.adapter.CaptureMainPageAdapter
-
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter
@@ -28,11 +30,10 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerInd
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView
-import kotlin.concurrent.thread
 
 
 
-class CaptureListDetailsActivity : AppCompatActivity() {
+class CaptureListDetailsActivity : AppCompatActivity() ,CoroutineScope by MainScope() {
 
     var data: CaptureData?=null
 
@@ -40,8 +41,8 @@ class CaptureListDetailsActivity : AppCompatActivity() {
     companion object{
 
         fun doIntent(context: Context, dataItemCurrentPosition: CaptureData?){
-          var intent =  Intent(context,CaptureListDetailsActivity::class.java)
-            var bundle =  Bundle()
+          val intent =  Intent(context,CaptureListDetailsActivity::class.java)
+            val bundle =  Bundle()
             bundle.putBinder("jsonItem", JsonBinder(dataItemCurrentPosition))
             intent.putExtra("bigJson",bundle)
             context.startActivity(intent)
@@ -54,27 +55,28 @@ class CaptureListDetailsActivity : AppCompatActivity() {
         setContentView(R.layout.capture_list_details_activity)
         binding = DataBindingUtil.setContentView(this,R.layout.capture_list_details_activity)
 
-        var bundle = intent.getBundleExtra("bigJson")
-        var jsonBinder =  bundle?.getBinder("jsonItem") as? JsonBinder
+        val bundle = intent.getBundleExtra("bigJson")
+        val jsonBinder =  bundle?.getBinder("jsonItem") as? JsonBinder
 
-          data  =  jsonBinder?.dataItemCurrentPosition;
+          data  =  jsonBinder?.dataItemCurrentPosition
 
-        binding.ctvTitle.getTitleView().setText("详情")
+        binding.ctvTitle.getTitleView().text = "详情"
         initTabTitle()
         binding.vp.adapter = getViewPagerFragment()
 
-        var  dialog = ProgressDialog.show(this, "", "正在格式化json数据", true);
-        thread {
+        val  dialog = ProgressDialog.show(this, "", "正在格式化json数据", true)
+        launch(Dispatchers.IO) {
             try {
-                var json = GsonHelper.toJson(JsonParser.parseString(data?.responseBody?:""))
+                val json = GsonHelper.toJson(JsonParser.parseString(data?.responseBody?:""))
                 data?.responseBody = json
-                runOnUiThread {
-                    dialog.dismiss();
+                withContext(Dispatchers.Main){
+                    dialog.dismiss()
                 }
+
             } catch (e: Exception) {
                 e.printStackTrace()
-                runOnUiThread {
-                    dialog.dismiss();
+                withContext(Dispatchers.Main) {
+                    dialog.dismiss()
                 }
             }
         }
@@ -82,15 +84,15 @@ class CaptureListDetailsActivity : AppCompatActivity() {
 
 
     private fun getViewPagerFragment(): CaptureMainPageAdapter {
-        var profitPagerAdapter = CaptureMainPageAdapter(supportFragmentManager,
+        val profitPagerAdapter = CaptureMainPageAdapter(supportFragmentManager,
                 FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)
 
-        var listFragment = ArrayList<Fragment>()
-        var overviewFragment = CaptureOverviewFragment()
+        val listFragment = ArrayList<Fragment>()
+        val overviewFragment = CaptureOverviewFragment()
         setType(overviewFragment,CaptureOverviewFragment.type1)
-        var requestFragment = CaptureOverviewFragment()
+        val requestFragment = CaptureOverviewFragment()
         setType(requestFragment,CaptureOverviewFragment.type2)
-        var responseFragment = CaptureOverviewFragment()
+        val responseFragment = CaptureOverviewFragment()
         setType(responseFragment,CaptureOverviewFragment.type3)
 
         listFragment.add(overviewFragment)
@@ -116,8 +118,8 @@ class CaptureListDetailsActivity : AppCompatActivity() {
         tabs?.add("请求")
         tabs?.add("响应")
         binding.midFaceCommand.setBackgroundColor(Color.WHITE)
-        var commonNavigator = CommonNavigator(this)
-        commonNavigator!!.isAdjustMode = true
+        val commonNavigator = CommonNavigator(this)
+        commonNavigator.isAdjustMode = true
 
         val commonAdapter: CommonNavigatorAdapter = object : CommonNavigatorAdapter() {
             override fun getCount(): Int {
@@ -125,8 +127,8 @@ class CaptureListDetailsActivity : AppCompatActivity() {
             }
 
             override fun getTitleView(context: Context?, index: Int): IPagerTitleView {
-                var simplePagerTitleView = ColorTransitionPagerTitleView(context)
-                simplePagerTitleView.setText(tabs?.get(index))
+                val simplePagerTitleView = ColorTransitionPagerTitleView(context)
+                simplePagerTitleView.text = tabs?.get(index)
                 simplePagerTitleView.normalColor = ContextCompat.getColor(this@CaptureListDetailsActivity, R.color.capture_color_73000000)
                 simplePagerTitleView.selectedColor = ContextCompat.getColor(this@CaptureListDetailsActivity, R.color.capture_color_4583FE)
 
@@ -144,14 +146,11 @@ class CaptureListDetailsActivity : AppCompatActivity() {
             }
         }
 
-        commonNavigator!!.adapter = commonAdapter
+        commonNavigator.adapter = commonAdapter
         binding.midFaceCommand.navigator = commonNavigator
 
-        ViewPagerHelper.bind(binding.midFaceCommand, binding.vp);
+        ViewPagerHelper.bind(binding.midFaceCommand, binding.vp)
     }
 
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
 }

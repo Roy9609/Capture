@@ -1,4 +1,4 @@
-package com.roy.capturelib.middle
+package com.roy.capture.middle
 
 import android.content.Context
 import androidx.lifecycle.LiveData
@@ -7,8 +7,8 @@ import com.roy.capture.bean.CaptureData
 import com.roy.capture.room.CaptureDao
 import com.roy.capture.room.CaptureDatabase
 import com.roy.capture.CaptureLib
-import com.roy.capturelib.bean.CaptureJsNativeInteractData
-import com.roy.capturelib.bean.CaptureSearchHistoryData
+import com.roy.capture.bean.CaptureJsNativeInteractData
+import com.roy.capture.bean.CaptureSearchHistoryData
 import com.roy.capture.room.CaptureJsNativeInteractDataDao
 import com.roy.capture.room.CaptureSearchHistoryDataDao
 import kotlin.concurrent.thread
@@ -112,7 +112,7 @@ class CaptureHelper {
      * @return LiveData<MutableList<CaptureSearchHistoryData>>?
      */
     fun searchHistoryQuery(limit: Int, offset: Int): LiveData<MutableList<CaptureSearchHistoryData>>? {
-       return  getCaptureSearchHistoryDataDao()?.queryByOffsetForAndroid(limit,offset);
+       return  getCaptureSearchHistoryDataDao()?.queryByOffsetForAndroid(limit,offset)
     }
 
 

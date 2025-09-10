@@ -10,7 +10,7 @@ import com.roy.capture.utils.isProbablyUtf8
 import com.roy.capture.utils.promisesBody
 import com.roy.capture.utils.readString
 import com.roy.capture.utils.toJsonString
-import com.roy.capturelib.middle.CaptureHelper
+import com.roy.capture.middle.CaptureHelper
 
 import okhttp3.*
 import okio.Buffer

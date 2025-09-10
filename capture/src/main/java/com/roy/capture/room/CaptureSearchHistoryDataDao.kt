@@ -5,7 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 
-import com.roy.capturelib.bean.CaptureSearchHistoryData
+import com.roy.capture.bean.CaptureSearchHistoryData
 
 
 @Dao
