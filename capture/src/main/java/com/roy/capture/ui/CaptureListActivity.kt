@@ -81,6 +81,16 @@ class CaptureListActivity : AppCompatActivity() {
         }
 
 
+
+        captureListAdapter?.itemClickListener { item ->
+            if (binding.searchBar.isSearchOpened) {
+                binding.searchBar.closeSearch()
+            } else {
+                CaptureListDetailsActivity.doIntent(this, item)
+            }
+        }
+
+
         allLog()
         initSearch()
     }
