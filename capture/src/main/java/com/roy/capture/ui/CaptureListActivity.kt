@@ -83,8 +83,8 @@ class CaptureListActivity : AppCompatActivity() {
 
 
         captureListAdapter?.itemClickListener { item ->
-            if (binding.searchBar.isSearchOpened) {
-                binding.searchBar.closeSearch()
+            if (binding.searchBar.isSuggestionsVisible) {
+                binding.searchBar.hideSuggestionsList()
             } else {
                 CaptureListDetailsActivity.doIntent(this, item)
             }
